@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS bugerDb;
+CREATE DATABASE burgerDb;
+USE bugerDb;
+
+CREATE TABLE served (
+    id INT AUTO_INCREMENT NOT NULL,
+    burger VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE consumed (
+    id INT AUTO_INCREMENT NOT NULL,
+    burger VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
+);
