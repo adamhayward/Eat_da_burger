@@ -1,20 +1,19 @@
-const { connect } = require("./connection");
-const connection = require("./connection");
+const connection = require("./connection.js");
 
-const createPlaceHolders = (quantity) => {
+// const createPlaceHolders = (quantity) => {
+//   let arr = [];
+
+//   for (let i = 0; i < quantity; i++) {
+//     arr.push("?");
+//   }
+//   return arr.toString();
+// };
+
+const objToSql = (ob) => {
   let arr = [];
-
-  for (let i = 0; i < quantity.length; i++) {
-    arr.push("?");
-  }
-  return arr.toString();
-};
-
-const obj2sql = (obj) => {
-  let arr = [];
-  for (var key in obj) {
-    let value = obj[key];
-    if (Object.hasOwnProperty.call(obj, key)) {
+  for (var key in ob) {
+    let value = ob[key];
+    if (Object.hasOwnProperty.call(ob, key)) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = `'${value}'`;
       }
@@ -33,9 +32,10 @@ const orm = {
     });
   },
   create: (table, cols, vals, cb) => {
-    let queryString = `INSERT INTO ${table}(${cols.toString()}) VALUES (${createPlaceHolders(
-      vals.length
-    )})`;
+    // let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${createPlaceHolders(
+    //   vals.length
+    // )}) `;
+    let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES ("?", false) `;
 
     console.log(queryString);
 
@@ -45,13 +45,11 @@ const orm = {
     });
   },
   update: (table, objColVals, condition, cb) => {
-    let queryString = `UPDATE ${table} SET ${obj2sql(
-      objColVals
-    )} WHERE ${condition}`;
-
+    let queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
+0
     console.log(queryString);
 
-    connection.query(queryString, (err, res) => {
+    connection.query(queryString, (err, result) => {
       if (err) throw err;
       cb(result);
     });

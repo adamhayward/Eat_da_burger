@@ -1,2 +1,2 @@
-INSERT INTO served (burger)
-VALUES ("Ham Burger", "Cheese Burger", "Veggie Burger");
+INSERT INTO burgers (burger, consume)
+VALUES ("Ham Burger", False);

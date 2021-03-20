@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mysql = require("mysql");
 
 const connection = mysql.createConnection({
@@ -17,3 +18,4 @@ connection.connect((err) =>{
 });
 
 module.exports = connection;
+

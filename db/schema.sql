@@ -1,11 +1,11 @@
-DROP DATABASE IF EXISTS bugerDb;
+DROP DATABASE IF EXISTS burgerDb;
 CREATE DATABASE burgerDb;
-USE bugerDb;
+USE burgerDb;
 
 CREATE TABLE burgers (
     id INT AUTO_INCREMENT NOT NULL,
     burger VARCHAR(30) NOT NULL,
-    consumed BOOLEAN DEFAULTF false,
+    consume BOOLEAN DEFAULT false,
     PRIMARY KEY(id)
 );
 
