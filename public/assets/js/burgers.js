@@ -1,7 +1,5 @@
-//Make sure we wait to attach our handlers until domain is loaded
-
 $(function () {
-  $(".create-form").on("submit", function (event) {
+  $(".create-form").on("click", function (event) {
     event.preventDefault();
     var newBurger = {
       name: $("#add-burger").val().trim(),
@@ -30,17 +28,15 @@ $(function () {
       location.reload();
     });
   });
+  
   $(".delete").on("click", function (event) {
     var id = $(this).data("id");
       //Send DELETE request
     $.ajax(`/burgers/${id}`, {
       type: "DELETE",
-      // data: newState,
     }).then(function () {
       console.log("burger removed");
       location.reload();
     });
   });
-
-
 });

@@ -1,13 +1,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center" id="top-bar">
-			<i class="fas fa-hamburger"></i>
+			<i class="fas fa-hamburger" style="font-size: 200px;"></i>
 			<h1> Eat-Da-Burger! </h1>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6 text-center" class="task">
-			<h3>Consumed</h3>
+			<h3>Order Up!</h3>
 			{{#each burger_data}}
 			{{#unless this.devoured}}
 			{{> burgers/burger-block devoured=true}}
@@ -31,7 +31,7 @@
 		<div class="col-md-12 text-center enter_section">
 			<form action="burgers/create" method="POST">
 				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-				<button type="submit" class="btn btn-light devour-form" id="text-enter-button">Submit</button>
+				<button type="submit" class="btn btn-primary create-form" id="text-enter-button">Submit</button>
 			</form>
 			<p>Enter a burger you want to eat Click the "Submit" button.</p>
 		</div>
