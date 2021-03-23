@@ -37,5 +37,17 @@ router.put("/burgers/:id", function(req, res) {
     res.sendStatus(200);
   });
 });
+// delete route -> remove from db
+router.delete("/burgers/:id", function(req, res) {
+  var condition = "ID = " + req.params.id;
 
+  burger.delete(condition, function (result) {
+      if (result.affectedRows == 0) {
+          return res.status(404).end();
+      } else {
+          res.status(200).end();
+      }
+  });
+});
+// expot router to server.js
 module.exports = router;

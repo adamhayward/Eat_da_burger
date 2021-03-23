@@ -5,11 +5,14 @@
         </div>
         <div class="d-flex align-items-center">
             {{#if devoured}}
-                <button type="button" class="btn btn-primary change-devoured btn-sm" data-id="{{id}}" data-newdevoured="{{devoured}}">
+                <button type="button" class="btn btn-primary devoure btn-sm" data-id="{{id}}" data-newdevoured="{{devoured}}">
                     Devour
                 </button>
             {{/if}}
-            <button type="button" class="btn-close delete-burger btn-sm" aria-label="Close" data-id="{{this.id}}"></button>
+            <button action="burgers/:id" method="DELETE" type="button" class="btn-close delete btn-sm btn-danger" data-id="{{this.id}}"></button>
         </div>
     </div>
 </li>
+
+
+
